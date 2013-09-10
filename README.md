@@ -11,9 +11,13 @@ We assume you already have WebServer working on your machine.
 
 ## Open Data
 
-We use open data by Yilan Government
+ We use open data by Yilan Government
  http://opendata.e-land.gov.tw/OpenData/Category1.aspx
 
 ## Demo
 
- http://210.70.168.17/yilan
+ View on web ( http://210.70.168.17/yilan )
+
+## Install
+
+ PhoneGap ( http://phonegap.com/ )
