@@ -21,3 +21,7 @@ We assume you already have WebServer working on your machine.
 ## Install
 
  PhoneGap ( http://phonegap.com/ )
+
+## License
+
+ 
