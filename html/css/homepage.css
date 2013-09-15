@@ -1,0 +1,149 @@
+.brk22{
+	
+	width: -webkit-calc(50% - 20px);
+	width: -moz-calc(50% - 20px);
+	width: calc(50% - 20px); 
+	margin:5px;
+	height:100px;
+	background-color:#ECAD00;
+	float:left;
+	padding:5px;
+	}
+	
+	
+
+	
+.brk11{
+	
+    width: -webkit-calc(25% - 20px);
+    width: -moz-calc(25% - 20px);
+    width: calc(25% - 20px);
+	margin:5px;
+	height:100px;
+	background-color:#FC3;
+	float:left;
+	padding:5px;
+	}
+
+.brk24{
+	
+	width: -webkit-calc(100% - 20px);
+    width: -moz-calc(100% - 20px);
+    width: calc(100% - 20px);
+	margin:5px;
+	padding:5px;
+	height:100px;
+	background-color:#CB2028;
+	float:left;
+	
+}
+.brk44{
+	
+	width: -webkit-calc(100% - 20px);
+    width: -moz-calc(100% - 20px);
+    width: calc(100% - 20px);
+	margin:5px;
+	padding:5px;
+	height:200px;
+	float:left;	
+	
+	}
+	
+
+	
+.gridHalf{
+	
+	
+	width: 50%; 
+	height:240px;
+	float:left;	
+	
+	
+	}
+	
+	
+.gridHalf 
+.brk44{
+	
+	width: -webkit-calc(100% - 20px);
+    width: -moz-calc(100% - 20px);
+    width: calc(100% - 20px);
+	margin:5px;
+	padding:5px;
+	height:220px;
+	background-color:#009EDB;
+	float:left;	
+	
+	}	
+	
+	
+.gridHalf 
+.brk22{
+	
+	width: -webkit-calc(50% - 20px);
+	width: -moz-calc(50% - 20px);
+	width: calc(50% - 20px); 
+	margin:5px;
+	padding:5px;
+	height:100px;
+	float:left;
+	}	
+	
+.brk_name_big{
+	font-size: 30px;
+	color:#FFF;
+	height:20%;
+	text-align:center;
+	}
+.brk_name_float{
+
+
+	}
+
+.brk_name{
+	font-size: 15px;
+	color:#FFF;
+	height:20%;
+	text-align:center;
+	}
+.brk_image{
+	text-align:center;
+	height: -webkit-calc(75% - 10px);
+    height: -moz-calc(75% - 10px);
+    height: calc(75% - 10px);
+	padding-top:10px;
+	font-size: 15px;
+	}
+
+.brk_image_float{
+	text-align:center;
+	height: -webkit-calc(75% - 10px);
+    height: -moz-calc(75% - 10px);
+    height: calc(75% - 10px);
+	padding-top:25px;
+
+	font-size: 15px;
+	float:left;
+	width:20%;
+	}
+	
+.brk_name_float{
+	padding-top:37px;
+	font-size: 20px;
+	padding-left:10%;
+	color:#FFF;
+	text-align:center;
+	float:left;
+width:70%;
+	}
+	
+	
+.brk22:hover{
+	background-color:#FFD362;
+}
+.brk44:hover{
+	background-color:#3CC9FF;
+}
+.brk24:hover{
+	background-color:#E76369;
+}
