@@ -32,7 +32,7 @@
 			
 			// 計算距離
 			for(var i=0; i< babyDaycareCenter.length; i++){
-				babyDaycareCenter[i].distance = babyDaycareCenter.length-i;
+				babyDaycareCenter[i].distance = distHaversine({lat: currentLatLng.lat(), lng: currentLatLng.lng()}, babyDaycareCenter[i]);
 			}
 			
 			// 排序
