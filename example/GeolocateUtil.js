@@ -118,3 +118,25 @@ function createMarkerIcon(text, opt) {
 
 			return canvas.toDataURL();
 		}
+		
+		Array.prototype.swap = function(i, j)  
+		{  
+			 var temp = this[i];  
+			 this[i] = this[j];  
+			 this[j] = temp;  
+		}  
+		
+		Array.prototype.bubbleSort = function()  
+		{  
+			for (var i = this.length - 1; i > 0; --i)  
+			{  
+				for (var j = 0; j < i; ++j)  
+				{  
+					if( typeof(this[j].distance) === "undefined" || typeof(this[j+1].distance) === "undefined") {
+						console.log("Exception: An attribute 'distance' is undefined!");
+						return false;
+					}
+					if (this[j].distance > this[j + 1].distance) this.swap(j, j + 1);  
+				}  
+			}  
+		}  
