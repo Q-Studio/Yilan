@@ -140,3 +140,25 @@ function createMarkerIcon(text, opt) {
 				}  
 			}  
 		}  
+
+function rad(x) {return x*Math.PI/180;}
+
+function distHaversine(p1, p2) {
+  var R = 6378.16; // earth's mean radius in km
+  var dLat  = rad(p2.lat - p1.lat);
+  var dLong = rad(p2.lng - p1.lng);
+
+  var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+          Math.cos(rad(p1.lat)) * Math.cos(rad(p2.lat)) * Math.sin(dLong/2) * Math.sin(dLong/2);
+  var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+  var d = R * c;
+
+  return d.toFixed(3); // in km
+}
+
+function distGeometry(p1, p2) {
+  var latLng1 = new google.maps.LatLng(p1.lat, p1.lng);
+  var latLng2 = new google.maps.LatLng(p2.lat, p2.lng);
+  var distance = google.maps.geometry.spherical.computeDistanceBetween (latLng1, latLng2);
+  return distance.toFixed(3); // in km
+}
