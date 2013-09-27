@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns = "http://www.w3.org/ns/widgets"
+    xmlns:gap = "http://phonegap.com/ns/1.0"
+    id        = "com.phonegap.Zap"
+    version   = "1.0.0">
+
+<name>Zap</name>
+
+<description>
+Zap Google Map test
+</description>
+
+<author href="https://github.com/LinZap" email="soldierzx0705@gmail.com">
+Zap Google Map test
+</author>
+
+<preference name="orientation" value="portrait" />
+<preference name="android-minSdkVersion" value="7" />
+
+<gap:splash src="images/PuliFoodMap.png" gap:platform="android" />
+
+</widget>

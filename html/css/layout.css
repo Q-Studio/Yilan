@@ -1,0 +1,147 @@
+/*!
+* HomePage CSS
+*
+*/
+a:link {
+text-decoration: none;
+color: #ffffff;
+}
+a:visited {
+text-decoration: none;
+color: #ffffff;
+}
+a:active {
+text-decoration: none;
+color: #ffffff;
+}
+a:hover {
+text-decoration: none;
+color: #ffffff;
+}
+
+
+#map_div {
+		padding-top: 10%;
+		padding-bottom: 10%;
+		position: absolute;
+		width: 100%;
+		height: 88%;
+		max-height: 1600px;
+	}
+
+
+.brk11{
+
+	padding: 5px;
+	margin: 5px;
+	height: 110px;
+	background-color: #009DAE;
+	text-align: center;
+}
+
+.brk11_2{
+
+	padding: 5px;
+	margin: 5px;
+	height: 110px;
+	background-color: #A500AC;
+	text-align: center;
+}
+
+.brk11_3{
+
+	padding: 5px;
+	margin: 5px;
+	height: 110px;
+	background-color:#094DB6;
+	text-align: center;
+}
+
+.brk11_4{
+
+	padding: 5px;
+	margin: 5px;
+	height: 110px;
+	background-color:#2C87EF;
+	text-align: center;
+}
+.brk11_5{
+
+	padding: 5px;
+	margin: 5px;
+	height: 110px;
+	background-color: #009218;
+	text-align: center;
+}
+
+
+.brk22{
+
+	padding: 5px;
+	margin: 5px;
+	height: 240px;
+	background-color: #DA542D;
+	text-align: center;
+}
+
+.brk22_2{
+
+	padding: 5px;
+	margin: 5px;
+	height: 240px;
+	background-color: #009218;
+	text-align: center;
+}
+
+
+.image11{
+
+	width: auto;
+	height: auto;
+	min-height: 56px;
+	max-width:46px;
+	padding-top: 10px;
+
+
+}
+
+.image22{
+
+	width: auto;
+	height: auto;
+	min-height: 140px;
+	max-width:128px;
+	padding-top: 20px;
+
+
+}
+.brk_name{
+
+	font-family: 微軟正黑體;
+	font-size: 16px;
+	font-weight: normal;
+	margin-top: 10px;
+	height: 30px;
+	max-height: 30px;
+	overflow: hidden;
+	color: #ffffff;
+}
+
+
+
+.brk_name2{
+
+	font-family: 微軟正黑體;
+	font-size: 16px;
+	font-weight: normal;
+	margin-top: 20px;
+	height: 30px;
+	max-height: 30px;
+	overflow: hidden;
+	color: #ffffff;
+
+}
+
+
+
+
