@@ -23,6 +23,21 @@
 			var homePage = $("#home div[data-role='content']");
 			var listPage = $("#listpage div[data-role='content']");
 			var now_data_file; // 目前點選的資料
+
+			//apply overrides here
+			$("#listpage").bind('pageshow',function(){
+				var str="";
+				for(var i=0; i< now_data_file.length; i++){					
+					console.log(now_data_file[i].name);
+					//$("<li>").html(now_data_file[i].name).appendTo("#recent");
+					str += "<li>"+ now_data_file[i].name +"</li>";
+				}
+				$("#recent").html(str);
+				$("#recent").listview("refresh");
+				
+			});
+
+			
 			
 			homePage.find("a").click(function(){
 				
@@ -34,24 +49,9 @@
 					case 2:
 					  
 					  break;
-					default:
-					  
+					default:					  
 				}
 				
-				listPage.find("#recent").empty();
-				for(var i=0; i< now_data_file.length; i++){					
-					/*var text_div = $("<div class='ui-btn-text'>");
-					var img = $("<img src='images/album-bb.jpg' class='ui-li-thumb ui-corner-tl'>").append(text_div);
-					var name = $("<h3 class='ui-li-heading'>").html(now_data_file[i].name).append(text_div);
-					var p = $("<p class='ui-li-desc'>").html().append(text_div);
-					
-					var inner_div = $("<div class='ui-btn-inner ui-li ui-li-has-alt ui-corner-top'>").append(text_div);
-					
-					$("<li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="false" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li ui-li-has-alt ui-li-has-thumb ui-corner-top ui-btn-up-c">")
-					.append(inner_div); class="ui-listview ui-listview-inset ui-corner-all ui-shadow" */
-					
-					$("<li>").html(now_data_file[i].name).appendTo("#recent");
-				}
 			});
 	});
 </script>
