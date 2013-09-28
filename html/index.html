@@ -220,43 +220,46 @@ var vaccineData = [{"month":1, "name":["卡介苗第一劑", "B 型肝炎疫苗�
 			case "m":return (dtEnd.getMonth()+1)+((dtEnd.getFullYear()-this.getFullYear())*12) - (this.getMonth()+1);
 			case "y":return dtEnd.getFullYear() - this.getFullYear();
 		}
-	}	
-	
-	//var vaccineObjs; // 疫苗提醒區塊 
-	$( document ).bind( "mobileinit", function(){
-		var year = localStorage.getItem("year"); 
-		var month = localStorage.getItem("month"); 
-		var day = localStorage.getItem("day");
+	}
 
-		if( (typeof year == "undefined") || (typeof month == "undefined") || (typeof day == "undefined")){
-			var msg = #('a[href="#vaccinepage"]').find(".brk_name2").html();
-			#('a[href="#vaccinepage"]').find(".brk_name2").html(msg + "</br>請輸入資料");
-			$('a[href="#vaccinepage"] img').attr("src","images/vaccine.fw2.png");
-		} else {
-			var dbDate = new Date(year,month,day);
-			var currentDate = new Date();
-			// 取得目前時間
-			navigator.globalization.dateToString(
-		        currentDate,
-		        function (date) {},
-		        function () {},
-		        {}
-		      );
+	function updateUI(){
+			var year = localStorage.getItem("year"); 
+			var month = localStorage.getItem("month"); 
+			var day = localStorage.getItem("day");
 
-			var dateDiff = dbDate.dateDiff("d",currentDate);
+			if( ( year == null) || (month ==null) || (day == null)){
+				$('a[href="#vaccinepage"]').find(".brk_name2").html("接種疫苗</br>請輸入資料");
+				$('a[href="#vaccinepage"] img').attr("src","images/vaccine.fw2.png");
+			} else {
+				//var dbDate = year+"/"+month+"/"+day;
+				var dbDate = new Date(year+"/"+month+"/"+day); 
+				//var currentDate = "2013/9/29";
+				var currentDate = new Date();
+				// 取得目前時間
+				navigator.globalization.dateToString(
+			        currentDate,
+			        function (date) {},
+			        function () {},
+			        {}
+			      );
 
-			for(var i=0; i<vaccineData.length; i++){
-				if( vaccineData[i].month * 30 < dateDiff){
-					var msg = #('a[href="#vaccinepage"]').find(".brk_name2").html();
-					#('a[href="#vaccinepage"]').find(".brk_name2").html(msg + "</br>" + dateDiff + "天後");
-					break;
-				} 
+				var dateDiff = dbDate.dateDiff("d",currentDate);
+
+				for(var i=0; i<vaccineData.length; i++){
+					if( vaccineData[i].month * 30 > dateDiff){
+						$('a[href="#vaccinepage"]').find(".brk_name2").html("接種疫苗</br>" + dateDiff + "天後");
+
+						break;
+					} 
+				}
+
 			}
 
-		}
-  	});
-
+	}	
+	
 	$(function(){
+
+			updateUI();  // 疫苗提醒區塊 
 
 			// 下面參數沒有被使用
 			var homePage = $("#home div[data-role='content']");
@@ -309,6 +312,12 @@ var vaccineData = [{"month":1, "name":["卡介苗第一劑", "B 型肝炎疫苗�
 				}
 			});
 			
+			$("#home").bind('pageshow',function(){
+				updateUI();  // 疫苗提醒區塊 
+				
+
+			});
+
 			// ListPage page show
 			$("#listpage").bind('pageshow',function(){
 				$("#listpage div[data-role='header'] h1").html(now_data_name);
@@ -426,13 +435,13 @@ var vaccineData = [{"month":1, "name":["卡介苗第一劑", "B 型肝炎疫苗�
 
 
 				$("#birthdayDialog").bind('pageshow',function(){
-						for(var i=2000;i<2013;i++)
+						for(var i=2000;i<=2013;i++)
 						$('#year').append(" <option value=\""+i+"\">"+i+"</option>");
 
-						for(var i=1;i<12;i++)
+						for(var i=1;i<=12;i++)
 						$('#month').append(" <option value=\""+i+"\">"+i+"</option>");
 
-						for(var i=1;i<31;i++)
+						for(var i=1;i<=31;i++)
 						$('#date').append(" <option value=\""+i+"\">"+i+"</option>");
 
 				});
@@ -581,7 +590,7 @@ var vaccineData = [{"month":1, "name":["卡介苗第一劑", "B 型肝炎疫苗�
 <!-- home page 以 ListView 顯示全部資料清單 -->
 <div data-role="page" id="listpage" data-theme="a">
   <div data-role="header" data-position="fixed" data-theme="b" >
-      <a data-rel="back" data-role="button" data-icon="home">返回</a>
+      <a href="#home" data-role="button" data-icon="home">返回</a>
       <h1>標題</h1>
   </div>
 
@@ -623,7 +632,7 @@ var vaccineData = [{"month":1, "name":["卡介苗第一劑", "B 型肝炎疫苗�
 <!-- vaccinepage 以 ListView 顯示全部疫苗清單 -->
 <div data-role="page" id="vaccinepage" data-theme="a">
   <div data-role="header" data-position="fixed" data-theme="a" >
-      <a data-rel="back" data-role="button" data-icon="home">返回</a>
+      <a href="#home" data-role="button" data-icon="home">返回</a>
       <h1>接種疫苗</h1>
   </div>
 
@@ -670,7 +679,7 @@ var vaccineData = [{"month":1, "name":["卡介苗第一劑", "B 型肝炎疫苗�
 <select name="select-choice-a" id="month" >
 </select>
 
-<label for="select-choice-a" class="select">日/label>
+<label for="select-choice-a" class="select">日</label>
 <select name="select-choice-a" id="date" >
 
 </select>
