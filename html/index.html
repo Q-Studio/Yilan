@@ -206,10 +206,54 @@ var vaccineData = [{"month":1, "name":["卡介苗第一劑", "B 型肝炎疫苗�
 	  var d = R * c;
 
 	  return d.toFixed(1); // in km
+	}
+
+	Date.prototype.dateDiff = function(interval,objDate){
+		var dtEnd = new Date(objDate);
+		if(isNaN(dtEnd)) return undefined;
+		switch (interval) {
+			case "s":return parseInt((dtEnd - this) / 1000);
+			case "n":return parseInt((dtEnd - this) / 60000);
+			case "h":return parseInt((dtEnd - this) / 3600000);
+			case "d":return parseInt((dtEnd - this) / 86400000);
+			case "w":return parseInt((dtEnd - this) / (86400000 * 7));
+			case "m":return (dtEnd.getMonth()+1)+((dtEnd.getFullYear()-this.getFullYear())*12) - (this.getMonth()+1);
+			case "y":return dtEnd.getFullYear() - this.getFullYear();
+		}
 	}	
 	
+	//var vaccineObjs; // 疫苗提醒區塊 
 	$( document ).bind( "mobileinit", function(){
-    	$.mobile.page.prototype.options.degradeInputs.date = true;
+		var year = localStorage.getItem("year"); 
+		var month = localStorage.getItem("month"); 
+		var day = localStorage.getItem("day");
+
+		if( (typeof year == "undefined") || (typeof month == "undefined") || (typeof day == "undefined")){
+			var msg = #('a[href="#vaccinepage"]').find(".brk_name2").html();
+			#('a[href="#vaccinepage"]').find(".brk_name2").html(msg + "</br>請輸入資料");
+			$('a[href="#vaccinepage"] img').attr("src","images/vaccine.fw2.png");
+		} else {
+			var dbDate = new Date(year,month,day);
+			var currentDate = new Date();
+			// 取得目前時間
+			navigator.globalization.dateToString(
+		        currentDate,
+		        function (date) {},
+		        function () {},
+		        {}
+		      );
+
+			var dateDiff = dbDate.dateDiff("d",currentDate);
+
+			for(var i=0; i<vaccineData.length; i++){
+				if( vaccineData[i].month * 30 < dateDiff){
+					var msg = #('a[href="#vaccinepage"]').find(".brk_name2").html();
+					#('a[href="#vaccinepage"]').find(".brk_name2").html(msg + "</br>" + dateDiff + "天後");
+					break;
+				} 
+			}
+
+		}
   	});
 
 	$(function(){
@@ -325,25 +369,28 @@ var vaccineData = [{"month":1, "name":["卡介苗第一劑", "B 型肝炎疫苗�
 			var month = localStorage.getItem("month");
 			$("#submit").bind('click',function(){
 				var name=$('#babyname').val();
-				var birthday=$('#babybirthday').val();
+				var y=$('#year').val();
+				var m=$('#month').val();
+				var d=$('#date').val();
 				
 				if(name=="")
 					alert("請輸入寶寶名稱");
-				else if(birthday=="")
+				else if(y=="" || m=="" || d =="")
 					alert("請選擇寶寶出生日期");
 				else{
 
-					var bd = birthday.split("-");
-					localStorage.setItem("year",bd[0]); 
-					localStorage.setItem("month",bd[1]); 
-					localStorage.setItem("day",bd[2]); 
+					
+					localStorage.setItem("year",y); 
+					localStorage.setItem("month",m); 
+					localStorage.setItem("day",d); 
 					localStorage.setItem("name", $("#babyname").val());
 
 					$.mobile.changePage("#vaccinepage", "slide", false, true);	
 					
 					}
 
-
+				// 換 home page 圖示
+				$('a[href="#vaccinepage"] img').attr("src","images/vaccine.fw.png");
 
 			});
 
@@ -378,7 +425,17 @@ var vaccineData = [{"month":1, "name":["卡介苗第一劑", "B 型肝炎疫苗�
 				});
 
 
+				$("#birthdayDialog").bind('pageshow',function(){
+						for(var i=2000;i<2013;i++)
+						$('#year').append(" <option value=\""+i+"\">"+i+"</option>");
 
+						for(var i=1;i<12;i++)
+						$('#month').append(" <option value=\""+i+"\">"+i+"</option>");
+
+						for(var i=1;i<31;i++)
+						$('#date').append(" <option value=\""+i+"\">"+i+"</option>");
+
+				});
 
 				
 
@@ -602,10 +659,25 @@ var vaccineData = [{"month":1, "name":["卡介苗第一劑", "B 型肝炎疫苗�
 	<div data-role="content">
 		<label for="text-basic">寶寶名稱</label>
 		<input type="text" name="text-basic" id="babyname" value="">
-		<label for="date"請選擇寶寶出生日期</label>
-		<input type="date" name="date" id="babybirthday" value="">
+		<label>請選擇寶寶出生日期</label>
+
+<label for="select-choice-a" class="select">年</label>
+<select name="select-choice-a" id="year" >
+
+</select>
+
+<label for="select-choice-a" class="select">月</label>
+<select name="select-choice-a" id="month" >
+</select>
+
+<label for="select-choice-a" class="select">日/label>
+<select name="select-choice-a" id="date" >
+
+</select>
+
+
 		<a href="#" data-role="button" data-theme="a" id="submit">完成</a>
-		<a href="#" data-role="button">離開</a>
+		<a href="#home" data-role="button">離開</a>
 	</div>
 </div>
 

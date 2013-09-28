@@ -109,8 +109,8 @@ color: #ffffff;
 
 	width: auto;
 	height: auto;
-	min-height: 140px;
-	max-width:128px;
+	min-height: 120px;
+	max-width:108px;
 	padding-top: 20px;
 
 
@@ -136,7 +136,7 @@ color: #ffffff;
 	font-weight: normal;
 	margin-top: 20px;
 	height: 30px;
-	max-height: 30px;
+	max-height: 50px;
 	overflow: hidden;
 	color: #ffffff;
 
