@@ -10,11 +10,54 @@
 <script src="js/jquery.mobile-1.3.2.min.js"></script>
 <script src="phonegap.js"></script>
 <script src="js/gmap.js"></script>
+<script src="js/data.js"></script>
 
 
 <link rel="stylesheet" href="css/mytheme.min.css" />
 <link rel="stylesheet" href="css/jquery.mobile.structure-1.3.2.min.css" />
 <link href="css/layout.css" rel="stylesheet" type="text/css">
+
+<script>
+	
+	$(function(){
+			var homePage = $("#home div[data-role='content']");
+			var listPage = $("#listpage div[data-role='content']");
+			var now_data_file; // 目前點選的資料
+			
+			homePage.find("a").click(function(){
+				
+				switch( $(this).attr("data-tag") )
+				{
+					case "milk":
+					  now_data_file = babyDaycareCenter;
+					  break;
+					case 2:
+					  
+					  break;
+					default:
+					  
+				}
+				
+				listPage.find("#recent").empty();
+				for(var i=0; i< now_data_file.length; i++){					
+					/*var text_div = $("<div class='ui-btn-text'>");
+					var img = $("<img src='images/album-bb.jpg' class='ui-li-thumb ui-corner-tl'>").append(text_div);
+					var name = $("<h3 class='ui-li-heading'>").html(now_data_file[i].name).append(text_div);
+					var p = $("<p class='ui-li-desc'>").html().append(text_div);
+					
+					var inner_div = $("<div class='ui-btn-inner ui-li ui-li-has-alt ui-corner-top'>").append(text_div);
+					
+					$("<li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="false" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li ui-li-has-alt ui-li-has-thumb ui-corner-top ui-btn-up-c">")
+					.append(inner_div); class="ui-listview ui-listview-inset ui-corner-all ui-shadow" */
+					
+					$("<li>").html(now_data_file[i].name).appendTo("#recent");
+				</div>
+		</li>
+					
+				}
+			});
+	});
+</script>
 
 </head>
 
@@ -29,19 +72,19 @@
   <div class="ui-grid-a">
 	<div class="ui-block-a">
 		 
-			<a href="#listpage"><div class="ui-block-a"><div class="brk11_3">
+			<a href="#listpage" data-tag="milk"><div class="ui-block-a"><div class="brk11_3">
 			<img src="images/milk.fw.png" class="image11">
 			<div class="brk_name">哺乳室</div>
 			</div></div>
 
-			<a href="#listpage"><div class="ui-block-b"><div class="brk11">
+			<a href="#listpage" data-tag="hospital"><div class="ui-block-b"><div class="brk11">
 
 			<img src="images/hospital.fw.png" class="image11">
 			<div class="brk_name">醫療院所</div>	
 
 			</div> </div></a>
 
-			<a href="#listpage"><div class="ui-block-a"> <div class="brk11_2">
+			<a href="#listpage" data-tag="health"><div class="ui-block-a"> <div class="brk11_2">
 
 			<img src="images/health.fw.png" class="image11">
 			<div class="brk_name">衛生局</div>	
@@ -49,7 +92,7 @@
 
 			</div></div></a>
 
-			<a href="#listpage"><div class="ui-block-b"> <div class="brk11_5">
+			<a href="#listpage" data-tag="stroller"><div class="ui-block-b"> <div class="brk11_5">
 
 			<img src="images/stroller.fw.png" class="image11">
 			<div class="brk_name">社區保母</div>	
@@ -129,14 +172,15 @@
 
 
   <div data-role="content">
-     <div id="entries"><ul id="recent" data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="搜尋景點"></ul>     </div>
+     <div id="entries"><ul id="recent" data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="搜尋景點" ></ul></div>
+
   </div>
 
   <div data-role="footer" data-position="fixed" data-theme="b">
 	  <div data-role="navbar" >
       <ul >
-        <li><a href="#mappage" id="btn_showmap2" data-icon="bars" data-iconpos="top">List</a></li>
-        <li><a href="#" id="btn_showhome2" data-icon="arrow-r" data-iconpos="top" class="ui-btn-active">Map</a></li> 
+        <li><a href="#" id="btn_showhome2" data-icon="arrow-r" data-iconpos="top" class="ui-btn-active">List</a></li>
+        <li><a href="#mappage" id="btn_showmap2" data-icon="bars" data-iconpos="top">Map</a></li> 
       </ul>
       </div>
   </div>
