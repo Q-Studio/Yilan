@@ -208,6 +208,10 @@ var vaccineData = [{"month":1, "name":["卡介苗第一劑", "B 型肝炎疫苗�
 	  return d.toFixed(1); // in km
 	}	
 	
+	$( document ).bind( "mobileinit", function(){
+    	$.mobile.page.prototype.options.degradeInputs.date = true;
+  	});
+
 	$(function(){
 
 			// 下面參數沒有被使用
