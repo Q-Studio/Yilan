@@ -17,40 +17,28 @@
 <link href="css/layout.css" rel="stylesheet" type="text/css">
 
 <script>
-	var babyDaycareCenter = [{name:'宜蘭縣政府委託台灣嬰幼兒潛能發展協會辦理公共托嬰中心-宜蘭中心',lng:'121.75074',lat:'24.76167',address :' 宜蘭市同慶街95號2樓',phone:'03-9356393'}
-,{name:'宜蘭縣私立巧天地托嬰中心',lng:'121.75670',lat:'24.76288',address :' 宜蘭市力行街力行巷9-1號',phone:'03-9333115'}
-,{name:'宜蘭縣私立達文西托嬰中心',lng:'121.74508',lat:'24.75373',address :' 宜蘭市泰山路85巷7號',phone:'03-9363068'}
-,{name:'宜蘭縣政府委託財團法人天主教蘭陽青年會辦理公共托嬰中心-羅東中心',lng:'121.75741',lat:'24.67606',address :' 羅東鎮北成路一段189號',phone:'03-9519359'}
-,{name:'宜蘭縣私立娃娃屋托嬰中心',lng:'121.75985',lat:'24.6755',address :' 羅東鎮北成路一段102之1號',phone:'03-9616832'}
-,{name:'宜蘭縣私立龍之堡托嬰中心',lng:'121.76390',lat:'24.68123',address :' 宜蘭縣羅東鎮公正路300巷25號',phone:'03-9557685'}
-,{name:'宜蘭縣私立小豆苗托嬰中心',lng:'121.77452',lat:'24.67361',address :' 宜蘭縣羅東鎮站前南路280號3樓',phone:'03-9561556'}
-,{name:'宜蘭縣私立貝蒂托嬰中心',lng:'121.80060',lat:'24.68616',address :' 五結鄉五結路二段322號',phone:'03-9509066'}
-,{name:'宜蘭縣私立喜園托嬰中心',lng:'121.76950',lat:'24.69956',address :' 五結鄉上四村中正東路72巷10號',phone:'03-9656966'}
-,{name:'宜蘭縣私立耕喬寶寶學園托嬰中心',lng:'121.77081',lat:'24.69109',address :' 五結鄉隆昌路21號',phone:'03-9549557'}
-,{name:'宜蘭縣政府委託台灣嬰幼兒潛能發展協會辦理公共托嬰中心-礁溪中心',lng:'121.76960',lat:'24.82081',address :' 礁溪鄉礁溪路四段126號3樓',phone:'03-9871993'}];
+	var babyDaycareCenter = [{name:'宜蘭縣政府委託台灣嬰幼兒潛能發展協會辦理公共托嬰中心-宜蘭中心',lng:'121.75074',lat:'24.76167',address :' 宜蘭市同慶街95號2樓',phone:'039356393'}
+,{name:'宜蘭縣私立巧天地托嬰中心',lng:'121.75670',lat:'24.76288',address :' 宜蘭市力行街力行巷9-1號',phone:'039333115'}
+,{name:'宜蘭縣私立達文西托嬰中心',lng:'121.74508',lat:'24.75373',address :' 宜蘭市泰山路85巷7號',phone:'039363068'}
+,{name:'宜蘭縣政府委託財團法人天主教蘭陽青年會辦理公共托嬰中心-羅東中心',lng:'121.75741',lat:'24.67606',address :' 羅東鎮北成路一段189號',phone:'039519359'}
+,{name:'宜蘭縣私立娃娃屋托嬰中心',lng:'121.75985',lat:'24.6755',address :' 羅東鎮北成路一段102之1號',phone:'039616832'}
+,{name:'宜蘭縣私立龍之堡托嬰中心',lng:'121.76390',lat:'24.68123',address :' 宜蘭縣羅東鎮公正路300巷25號',phone:'039557685'}
+,{name:'宜蘭縣私立小豆苗托嬰中心',lng:'121.77452',lat:'24.67361',address :' 宜蘭縣羅東鎮站前南路280號3樓',phone:'039561556'}
+,{name:'宜蘭縣私立貝蒂托嬰中心',lng:'121.80060',lat:'24.68616',address :' 五結鄉五結路二段322號',phone:'039509066'}
+,{name:'宜蘭縣私立喜園托嬰中心',lng:'121.76950',lat:'24.69956',address :' 五結鄉上四村中正東路72巷10號',phone:'039656966'}
+,{name:'宜蘭縣私立耕喬寶寶學園托嬰中心',lng:'121.77081',lat:'24.69109',address :' 五結鄉隆昌路21號',phone:'039549557'}
+,{name:'宜蘭縣政府委託台灣嬰幼兒潛能發展協會辦理公共托嬰中心-礁溪中心',lng:'121.76960',lat:'24.82081',address :' 礁溪鄉礁溪路四段126號3樓',phone:'039871993'}];
 
 	$(function(){
 			var homePage = $("#home div[data-role='content']");
 			var listPage = $("#listpage div[data-role='content']");
+
+
+			// 首頁功能
 			var now_data_file; // 目前點選的資料
-
-			//apply overrides here
-			$("#listpage").bind('pageshow',function(){
-				var str="";
-				for(var i=0; i< now_data_file.length; i++){					
-					console.log(now_data_file[i].name);
-					//$("<li>").html(now_data_file[i].name).appendTo("#recent");
-					str += "<li>"+ now_data_file[i].name +"</li>";
-				}
-				$("#recent").html(str);
-				$("#recent").listview("refresh");
-				
-			});
-
-			
+			var now_select_location; // 目前選擇地點
 			
 			homePage.find("a").click(function(){
-				
 				switch( $(this).attr("data-tag") )
 				{
 					case "milk":
@@ -61,7 +49,39 @@
 					  break;
 					default:					  
 				}
+			});
+			
+			// ListPage page show
+			$("#listpage").bind('pageshow',function(){
+
+				for(var i=0; i< now_data_file.length; i++){	
+
+					var list_li = $('<li data-iconpos="left">');
+					var list_a = $("<a href='#selectDialog' data-rel='dialog' data-transition='pop' class='ui-link-inherit' data-param='"+JSON.stringify(now_data_file[i])+"'>")
+						.click(function(){
+							now_select_location = $.parseJSON($(this).attr("data-param"));
+						});
+						
+					var list_text = $('<div class="ui-btn-text">');
 				
+					list_text
+						//.append('<img src="images/list.png" class="ui-li-icon">')
+						.append('<h3 class="ui-li-heading">'+now_data_file[i].name+'</h3>')
+						.append('<p class="ui-li-desc"> '+ now_data_file[i].address + '<br/>' + now_data_file[i].phone +'</p>')
+						.appendTo(list_a);
+					
+					list_a.appendTo(list_li);
+					list_li.appendTo("#recent");
+						//$("<li>").html(now_data_file[i].name).appendTo("#recent");
+				}
+				$("#recent").listview("refresh");
+			});
+			
+			//apply overrides here
+			$("#selectDialog").bind('pageshow',function(){
+				//$(this).find("a[data-tag='navigation'").attr("href":"http://maps.google.com/maps?daddr="+ now_select_location. +","+ +"&saddr="+ +","+);
+				$(this).find("a[data-tag='phonecall']").attr("href","tel:"+now_select_location.phone);
+				//$(this).find("a[data-tag='mylove'").attr("");
 			});
 	});
 </script>
@@ -81,7 +101,7 @@
 		 
 			<a href="#listpage" data-tag="milk"><div class="ui-block-a"><div class="brk11_3">
 			<img src="images/milk.fw.png" class="image11">
-			<div class="brk_name">哺乳室e</div>
+			<div class="brk_name">哺乳室</div>
 			</div></div>
 
 			<a href="#listpage" data-tag="hospital"><div class="ui-block-b"><div class="brk11">
@@ -230,6 +250,13 @@
 
 </div>
 
+
+<div data-role="page" id="selectDialog">
+	<div data-role="content">
+		<a href="index.html" data-tag="navigation" data-role="button" data-icon="grid">導航</a> 
+		<a href="index.html" data-tag="phonecall" data-role="button" data-icon="info">撥號</a> 
+	</div>
+</div>
 
 
 
