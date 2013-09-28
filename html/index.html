@@ -17,6 +17,9 @@
 <link href="css/layout.css" rel="stylesheet" type="text/css">
 
 <script>
+
+
+
 	var babyDaycareCenter = [{name:'宜蘭縣政府委託台灣嬰幼兒潛能發展協會辦理公共托嬰中心-宜蘭中心',lng:'121.75074',lat:'24.76167',address :' 宜蘭市同慶街95號2樓',phone:'039356393'}
 ,{name:'宜蘭縣私立巧天地托嬰中心',lng:'121.75670',lat:'24.76288',address :' 宜蘭市力行街力行巷9-1號',phone:'039333115'}
 ,{name:'宜蘭縣私立達文西托嬰中心',lng:'121.74508',lat:'24.75373',address :' 宜蘭市泰山路85巷7號',phone:'039363068'}
@@ -47,6 +50,21 @@
 ];
 
 
+var vaccineData = [{"month":1, "name":["卡介苗第一劑", "B 型肝炎疫苗第一劑", "B 型肝炎疫苗第二劑"]},
+               {"month":2, "name":["白喉破傷風非細胞性百日咳、b 型嗜血桿菌及不活化小兒麻痺五合一疫苗第一劑"]},
+               {"month":4, "name":["白喉破傷風非細胞性百日咳、b 型嗜血桿菌及不活化小兒麻痺五合一疫苗第二劑"]},
+               {"month":6, "name":["B 型肝炎疫苗第三劑", "白喉破傷風非細胞性百日咳、b 型嗜血桿菌及不活化小兒麻痺五合一疫苗第三劑","流感疫苗第一劑","流感疫苗第二劑"]},
+               {"month":12, "name":["水痘疫苗第一劑", "麻疹腮腺炎德國麻疹混合疫苗第一劑"]},
+               {"month":15, "name":["日本腦炎疫苗第一劑", "日本腦炎疫苗第二劑"]},
+               {"month":18, "name":["白喉破傷風非細胞性百日咳、b 型嗜血桿菌及不活化小兒麻痺五合一疫苗第四劑","流感疫苗一劑"]},
+               {"month":24, "name":["A 型肝炎疫苗第一劑"]},
+               {"month":27, "name":["日本腦炎疫苗第三劑"]},
+               {"month":30, "name":["A 型肝炎疫苗第二劑","流感疫苗一劑"]},
+               {"month":42, "name":["流感疫苗一劑"]},
+               {"month":60, "name":["減量破傷風白喉非細胞性百日咳及不活化小兒麻痺混合疫苗一劑","流感疫苗一劑"]}];
+
+
+
 		
 	var defaultLatLng = new google.maps.LatLng(24.73071, 121.76312); // Yilan Government 
 	var currentLatLng = defaultLatLng;	
@@ -71,8 +89,11 @@
 	}	
 	
 	$(function(){
+
+			// 下面參數沒有被使用
 			var homePage = $("#home div[data-role='content']");
 			var listPage = $("#listpage div[data-role='content']");
+			var vaccinepage = $("#vaccinepage div[data-role='content']");
 
 			initialize(setCurrentLatLng); // 初始現在座標
 
@@ -93,6 +114,11 @@
 				}
 			});
 			
+
+
+
+
+
 			// ListPage page show
 			$("#listpage").bind('pageshow',function(){
 
@@ -119,12 +145,105 @@
 				$("#recent").listview("refresh");
 			});
 			
+
+
+
+
+
+
+
+
 			//apply overrides here
 			$("#selectDialog").bind('pageshow',function(){
 				$(this).find("a[data-tag='navigation']").attr("href","http://maps.google.com/maps?daddr="+ currentLatLng.lat() +","+ currentLatLng.lng() +"&saddr="+ now_select_location.lat +","+ now_select_location.lng);
 				$(this).find("a[data-tag='phonecall']").attr("href","tel:"+now_select_location.phone);
 				//$(this).find("a[data-tag='mylove'").attr("");
 			});
+
+
+
+
+
+			//name:  vaccineData   format: [ {"month":1, "name":["卡介苗第一劑", "B 型肝炎疫苗第一劑", "B 型肝炎疫苗第二劑"]}, ...]
+			// 接種疫苗 page 事件 vaccinePage page show
+			// 記錄寶寶出生年月日對話框
+			var month = localStorage.getItem("month");
+			$("#submit").bind('click',function(){
+				var name=$('#babyname').val();
+				var birthday=$('#babybirthday').val();
+				
+				if(name=="")
+					alert("請輸入寶寶名稱");
+				else if(birthday=="")
+					alert("請選擇寶寶出生日期");
+				else{
+
+					var bd = birthday.split("-");
+					localStorage.setItem("year",bd[0]); 
+					localStorage.setItem("month",bd[1]); 
+					localStorage.setItem("day",bd[2]); 
+					localStorage.setItem("name", $("#babyname").val());
+
+					$.mobile.changePage("#vaccinepage", "slide", false, true);	
+					
+					}
+
+
+
+			});
+
+			$("#vaccinepage").bind('pageshow',function(){
+				month = localStorage.getItem("month");
+				
+				if(month == null){
+					$('#lnkDialog').click();
+				}
+				else{
+					
+					for(var i=0; i< vaccineData.length; i++){	
+
+					var list_li_der = $('<li data-role="list-divider" data-theme="a">');
+						list_li_der.append('<h3 class="ui-li-heading">' + vaccineData[i].month + '個月後接種</h3>');
+						list_li_der.appendTo("#vaccineList");
+					var list_name = vaccineData[i].name;
+							for(var j=0; j< list_name.length; j++){	
+									var list_li = $('<li>');
+									var list_a = $("<a href='#'>");
+									var list_text = $('<div class="ui-btn-text">');
+									list_text.append('<h3 class="ui-li-heading">'+list_name[j]+'</h3>').appendTo(list_a);
+									list_a.appendTo(list_li);
+									list_li.appendTo("#vaccineList");
+							}
+					}
+					$("#vaccineList").listview("refresh");
+
+				}
+
+					
+				});
+
+
+
+
+				
+
+
+
+
+
+				
+
+
+
+
+
+		
+
+
+
+
+
+
 	});
 </script>
 
@@ -144,7 +263,7 @@
 			<a href="#listpage" data-tag="milk"><div class="ui-block-a"><div class="brk11_3">
 			<img src="images/milk.fw.png" class="image11">
 			<div class="brk_name">哺乳室</div>
-			</div></div>
+			</div></div></a>
 
 			<a href="#listpage" data-tag="hospital"><div class="ui-block-b"><div class="brk11">
 
@@ -170,13 +289,11 @@
 
 	</div>
 
-	<div class="ui-block-b">
-		 <div class="brk22">
+	<a href="#vaccinepage" ><div class="ui-block-b">
+		 <div class="brk22"><img src="images/vaccine.fw.png" class="image22"><div class="brk_name2">接種疫苗</div>	
+	 </div> </a>
 
-			<img src="images/vaccine.fw.png" class="image22">
-			<div class="brk_name2">接種疫苗</div>	
 
-		 </div> 
 	</div>
 </div>
 
@@ -293,12 +410,62 @@
 </div>
 
 
+
+
+
+
+<!-- vaccinepage 以 ListView 顯示全部疫苗清單 -->
+<div data-role="page" id="vaccinepage" data-theme="a">
+  <div data-role="header" data-position="fixed" data-theme="a" >
+      <a data-rel="back" data-role="button">返回</a>
+      <h1>接種疫苗</h1>
+  </div>
+
+
+  <div data-role="content">
+  	<a id='lnkDialog' href="#birthdayDialog" data-rel="dialog" data-transition="pop" style='display:none;'></a>
+     <div id="entries2">
+     <ul id="vaccineList" data-role="listview" data-filter="true" data-filter-placeholder="搜尋疫苗" ></ul>
+     </div>
+  </div>
+
+</div>
+
+
+
+
+
+
+<!-- 詢問對話框 -->
 <div data-role="page" id="selectDialog">
 	<div data-role="content">
 		<a href="index.html" data-tag="navigation" data-role="button" data-icon="grid">導航</a> 
 		<a href="index.html" data-tag="phonecall" data-role="button" data-icon="info">撥號</a> 
 	</div>
 </div>
+
+
+
+
+
+<!-- 註冊寶寶出生年月日資訊對話框 -->
+<div data-role="page" id="birthdayDialog">
+	<div data-role="content">
+		<label for="text-basic">寶寶名稱</label>
+		<input type="text" name="text-basic" id="babyname" value="">
+		<label for="date"請選擇寶寶出生日期</label>
+		<input type="date" name="date" id="babybirthday" value="">
+		<a href="#" data-role="button" data-theme="a" id="submit">完成</a>
+		<a href="#" data-role="button">離開</a>
+	</div>
+</div>
+
+
+
+
+
+
+
 
 
 
