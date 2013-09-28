@@ -28,7 +28,26 @@
 ,{name:'宜蘭縣私立喜園托嬰中心',lng:'121.76950',lat:'24.69956',address :' 五結鄉上四村中正東路72巷10號',phone:'039656966'}
 ,{name:'宜蘭縣私立耕喬寶寶學園托嬰中心',lng:'121.77081',lat:'24.69109',address :' 五結鄉隆昌路21號',phone:'039549557'}
 ,{name:'宜蘭縣政府委託台灣嬰幼兒潛能發展協會辦理公共托嬰中心-礁溪中心',lng:'121.76960',lat:'24.82081',address :' 礁溪鄉礁溪路四段126號3樓',phone:'039871993'}];
-			
+	var motherBabyCenter =	[{name:'聖母醫院',lng:'121.77157',lat:'24.67183',address :' 宜蘭縣羅東鎮中正南路160號',phone:'039544106'}
+,{name:'博愛醫院',lng:'121.77316',lat:'24.67169',address :' 宜蘭縣羅東鎮南昌街83號',phone:'039543131'}
+,{name:'陽明大學附設醫院',lng:'121.75416',lat:'24.75777',address :' 宜蘭市新民路152號',phone:'039051688'}
+];
+	var healthCenter =	[{name:'宜蘭市衛生所',lng:'121.75307',lat:'24.74925',address :' 宜蘭縣宜蘭市復興路一段３號',phone:'(03)9322362'}
+,{name:'羅東鎮衛生所',lng:'121.767',lat:'24.67755',address :' 宜蘭縣羅東鎮民生路 79號',phone:'(03)9542321'}
+,{name:'蘇澳鎮衛生所',lng:'121.84151',lat:'24.59406',address :' 蘇澳鎮志成路六十號',phone:'(03)9962486'}
+,{name:'頭城鎮衛生所',lng:'121.82048',lat:'24.85673',address :' 宜蘭縣頭城鎮新建里新興路 304 號',phone:'(03)9771034'}
+,{name:'礁溪鄉衛生所',lng:'121.7696',lat:'24.82081',address :' 宜蘭縣礁溪鄉礁溪路四段126號B1',phone:'(03)9882908'}
+,{name:'壯圍鄉衛生所',lng:'121.78656',lat:'24.74701',address :' 宜蘭縣壯圍鄉吉祥村中央路二段290號',phone:'(03)9385503'}
+,{name:'員山鄉衛生所',lng:'121.72432',lat:'24.74442',address :' 宜蘭縣員山鄉復興路2號',phone:'(03)9226147'}
+,{name:'冬山鄉衛生所',lng:'121.79152',lat:'24.63609',address :' 宜蘭縣冬山鄉冬山村中正路16號',phone:'(03)9591140'}
+,{name:'五結鄉衛生所',lng:'121.79891',lat:'24.68488',address :' 宜蘭縣五結鄉五結村五結路二段337號',phone:'(03)9600040'}
+,{name:'三星鄉衛生所',lng:'121.65157',lat:'24.66613',address :' 三星鄉三星路五段70號',phone:'(03)9893541'}
+,{name:'大同鄉衛生所',lng:'121.60885',lat:'24.67786',address :' 宜蘭縣大同鄉崙埤村朝陽40號',phone:'(03)9801175'}
+,{name:'南澳鄉衛生所',lng:'121.80353',lat:'24.46582',address :' 宜蘭縣南澳鄉南澳村蘇花路二段375號',phone:'(03)9981019'}
+];
+
+
+		
 	var defaultLatLng = new google.maps.LatLng(24.73071, 121.76312); // Yilan Government 
 	var currentLatLng = defaultLatLng;	
 	
@@ -38,9 +57,7 @@
 			{
 				navigator.geolocation.getCurrentPosition(
 					successCallback,
-					function(error) {
-										
-					}			
+					function(error) {}			
 				);
 			}
 			else
