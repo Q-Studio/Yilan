@@ -28,11 +28,36 @@
 ,{name:'宜蘭縣私立喜園托嬰中心',lng:'121.76950',lat:'24.69956',address :' 五結鄉上四村中正東路72巷10號',phone:'039656966'}
 ,{name:'宜蘭縣私立耕喬寶寶學園托嬰中心',lng:'121.77081',lat:'24.69109',address :' 五結鄉隆昌路21號',phone:'039549557'}
 ,{name:'宜蘭縣政府委託台灣嬰幼兒潛能發展協會辦理公共托嬰中心-礁溪中心',lng:'121.76960',lat:'24.82081',address :' 礁溪鄉礁溪路四段126號3樓',phone:'039871993'}];
+			
+	var defaultLatLng = new google.maps.LatLng(24.73071, 121.76312); // Yilan Government 
+	var currentLatLng = defaultLatLng;	
+	
+	function initialize(successCallback)
+	{
+			if (navigator.geolocation)
+			{
+				navigator.geolocation.getCurrentPosition(
+					successCallback,
+					function(error) {
+										
+					}			
+				);
+			}
+			else
+			{
+				// 改 alert $("#msg").html("System can't get your geolocation. Your location will automatically set on Yilan government!");
+			}
+	}
 
+	function setCurrentLatLng(position){
+		currentLatLng =  new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+	}	
+	
 	$(function(){
 			var homePage = $("#home div[data-role='content']");
 			var listPage = $("#listpage div[data-role='content']");
 
+			initialize(setCurrentLatLng); // 初始現在座標
 
 			// 首頁功能
 			var now_data_file; // 目前點選的資料
@@ -79,7 +104,7 @@
 			
 			//apply overrides here
 			$("#selectDialog").bind('pageshow',function(){
-				//$(this).find("a[data-tag='navigation'").attr("href":"http://maps.google.com/maps?daddr="+ now_select_location. +","+ +"&saddr="+ +","+);
+				$(this).find("a[data-tag='navigation']").attr("href","http://maps.google.com/maps?daddr="+ currentLatLng.lat() +","+ currentLatLng.lng() +"&saddr="+ now_select_location.lat +","+ now_select_location.lng);
 				$(this).find("a[data-tag='phonecall']").attr("href","tel:"+now_select_location.phone);
 				//$(this).find("a[data-tag='mylove'").attr("");
 			});
@@ -199,7 +224,7 @@
 
 
   <div data-role="content">
-     <div id="entries"><ul id="recent" data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="搜尋景點" ></ul></div>
+     <div id="entries"><ul id="recent" data-role="listview" data-filter="true" data-filter-placeholder="搜尋景點" ></ul></div>
 
   </div>
 
