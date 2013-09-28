@@ -227,35 +227,35 @@ var vaccineData = [{"month":1, "name":["卡介苗第一劑", "B 型肝炎疫苗�
 				{
 					case "babyDaycareCenter":
 					  now_data_file = babyDaycareCenter;
-					  now_data_name = $(this).find("div[class|='brk_name']").html();
+					  now_data_name = $(this).find("div[data-tag='name']").html();
 					  break;
 					case "healthCenter":
 					  now_data_file = healthCenter;
-					  now_data_name = $(this).find("div[class|='brk_name']").html();
+					  now_data_name = $(this).find("div[data-tag='name']").html();
 					  break;
 					case "homeCenter":
 					  now_data_file = homeCenter;
-					  now_data_name = $(this).find("div[class|='brk_name']").html();
+					  now_data_name = $(this).find("div[data-tag='name']").html();
 					  break;
 					case "feedingCenter":
 					  now_data_file = feedingCenter;
-					  now_data_name = $(this).find("div[class|='brk_name']").html();
+					  now_data_name = $(this).find("div[data-tag='name']").html();
 					  break;
 					case "hospital":
 					  now_data_file = hospital;
-					  now_data_name = $(this).find("div[class|='brk_name']").html();
+					  now_data_name = $(this).find("div[data-tag='name']").html();
 					  break;
 					case "vaccineCenter":
 					  now_data_file = vaccineCenter;
-					  now_data_name = $(this).find("div[class|='brk_name']").html();
+					  now_data_name = $(this).find("div[data-tag='name']").html();
 					  break;
 					case "motherBabyCenter":
 					  now_data_file = motherBabyCenter;
-					  now_data_name = $(this).find("div[class|='brk_name']").html();
+					  now_data_name = $(this).find("div[data-tag='name']").html();
 					  break;
 					case "afterBirthCenter":
 					  now_data_file = afterBirthCenter;
-					  now_data_name = $(this).find("div[class|='brk_name']").html();
+					  now_data_name = $(this).find("div[data-tag='name']").html();
 					  break;		
 					default:					  
 				}
@@ -413,20 +413,20 @@ var vaccineData = [{"month":1, "name":["卡介苗第一劑", "B 型肝炎疫苗�
 		 
 			<a href="#listpage" data-tag="feedingCenter"><div class="ui-block-a"><div class="brk11_3">
 			<img src="images/milk.fw.png" class="image11">
-			<div class="brk_name">哺集乳室</div>
+			<div class="brk_name" data-tag="name">哺集乳室</div>
 			</div></div></a>
 
 			<a href="#listpage" data-tag="hospital"><div class="ui-block-b"><div class="brk11">
 
 			<img src="images/hospital.fw.png" class="image11">
-			<div class="brk_name">醫療院所</div>	
+			<div class="brk_name" data-tag="name">醫療院所</div>	
 
 			</div> </div></a>
 
 			<a href="#listpage" data-tag="healthCenter"><div class="ui-block-a"> <div class="brk11_2">
 
 			<img src="images/health.fw.png" class="image11">
-			<div class="brk_name">衛生所</div>	
+			<div class="brk_name" data-tag="name">衛生所</div>	
 
 
 			</div></div></a>
@@ -434,14 +434,14 @@ var vaccineData = [{"month":1, "name":["卡介苗第一劑", "B 型肝炎疫苗�
 			<a href="#listpage" data-tag="vaccineCenter"><div class="ui-block-b"> <div class="brk11_5">
 
 			<img src="images/stroller.fw.png" class="image11">
-			<div class="brk_name">接種中心</div>	
+			<div class="brk_name" data-tag="name">接種中心</div>	
 
 			</div></div></a>
 
 	</div>
 
 	<a href="#vaccinepage" ><div class="ui-block-b">
-		 <div class="brk22"><img src="images/vaccine.fw.png" class="image22"><div class="brk_name2">接種疫苗</div>	
+		 <div class="brk22"><img src="images/vaccine.fw.png" class="image22"><div class="brk_name2" data-tag="name">接種疫苗</div>	
 	 </div> </a>
 
 
@@ -456,7 +456,7 @@ var vaccineData = [{"month":1, "name":["卡介苗第一劑", "B 型肝炎疫苗�
 		<div class="ui-block-a"> 
 		 <div class="brk22_2">
 			<img src="images/home.fw.png" class="image22">
-			<div class="brk_name2">居家護理所</div>
+			<div class="brk_name2" data-tag="name">居家護理所</div>
 		</div> 	</div>
 </a>
 <a href="#listpage" data-tag="babyDaycareCenter">
@@ -464,19 +464,19 @@ var vaccineData = [{"month":1, "name":["卡介苗第一劑", "B 型肝炎疫苗�
 		
 		<div class="ui-grid-solo"> <div class="brk11">
 			<img src="images/health.fw.png" class="image11">
-			<div class="brk_name">托嬰中心</div>	
+			<div class="brk_name" data-tag="name">托嬰中心</div>	
 		</div> </div>
 </a>
 <a href="#listpage" data-tag="favorite">
 		<div class="ui-block-a"> <div class="brk11_2">
 			<img src="images/health.fw.png" class="image11">
-			<div class="brk_name">我的最愛</div>	
+			<div class="brk_name" data-tag="name">我的最愛</div>	
 		</div> </div>
 </a>
 <a href="#listpage" data-tag="about">
 		<div class="ui-block-b"> <div class="brk11_3">
 			<img src="images/health.fw.png" class="image11">
-			<div class="brk_name">關於</div>	
+			<div class="brk_name" data-tag="name">關於</div>	
 		</div> </div>
 </a>
 	</div>
@@ -494,13 +494,13 @@ var vaccineData = [{"month":1, "name":["卡介苗第一劑", "B 型肝炎疫苗�
 <a href="#listpage" data-tag="afterBirthCenter">
 		<div class="ui-block-a"> <div class="brk11_2">
 			<img src="images/health.fw.png" class="image11">
-			<div class="brk_name">產後護理之家</div>	
+			<div class="brk_name" data-tag="name">產後護理之家</div>	
 		</div> </div>
 </a>
 <a href="#listpage" data-tag="motherBabyCenter">
 		<div class="ui-block-b"> <div class="brk11_3">
 			<img src="images/health.fw.png" class="image11">
-			<div class="brk_name">母嬰醫療院所</div>	
+			<div class="brk_name" data-tag="name">母嬰醫療院所</div>	
 		</div> </div>
 </a>
 
