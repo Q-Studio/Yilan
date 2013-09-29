@@ -4,19 +4,19 @@
 */
 a:link {
 text-decoration: none;
-color: #ffffff;
+color: #000000;
 }
 a:visited {
 text-decoration: none;
-color: #ffffff;
+color: #0000000;
 }
 a:active {
 text-decoration: none;
-color: #ffffff;
+color: #000000;
 }
 a:hover {
 text-decoration: none;
-color: #ffffff;
+color: #000000;
 }
 
 
@@ -35,7 +35,7 @@ color: #ffffff;
 	padding: 5px;
 	margin: 5px;
 	height: 110px;
-	background-color: #009DAE;
+	background-color: #DFCA33;
 	text-align: center;
 }
 
@@ -44,7 +44,7 @@ color: #ffffff;
 	padding: 5px;
 	margin: 5px;
 	height: 110px;
-	background-color: #A500AC;
+	background-color: #FD9921;
 	text-align: center;
 }
 
@@ -53,7 +53,7 @@ color: #ffffff;
 	padding: 5px;
 	margin: 5px;
 	height: 110px;
-	background-color:#094DB6;
+	background-color:#EB5747;
 	text-align: center;
 }
 
@@ -62,7 +62,7 @@ color: #ffffff;
 	padding: 5px;
 	margin: 5px;
 	height: 110px;
-	background-color:#2C87EF;
+	background-color:#F57DD3;
 	text-align: center;
 }
 .brk11_5{
@@ -70,7 +70,7 @@ color: #ffffff;
 	padding: 5px;
 	margin: 5px;
 	height: 110px;
-	background-color: #009218;
+	background-color: #9139DD;
 	text-align: center;
 }
 
@@ -80,7 +80,7 @@ color: #ffffff;
 	padding: 5px;
 	margin: 5px;
 	height: 240px;
-	background-color: #DA542D;
+	background-color:  #DFCA33;
 	text-align: center;
 }
 
@@ -89,7 +89,7 @@ color: #ffffff;
 	padding: 5px;
 	margin: 5px;
 	height: 240px;
-	background-color: #009218;
+	background-color: #FD9921;
 	text-align: center;
 }
 
