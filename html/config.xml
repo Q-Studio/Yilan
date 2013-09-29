@@ -4,14 +4,14 @@
     id        = "com.phonegap.Zap"
     version   = "1.0.0">
 
-<name>Zap</name>
+<name>宜蘭婦幼</name>
 
 <description>
-Zap Google Map test
+孩子接種疫苗是每位父母親必須經歷的過程，為了讓父母親能更方便、更快速的掌握各項婦幼醫療照護資訊。婦幼照護的關鍵，除了醫護人員的醫療照顧外，更重要的是新手父母及親友完善的照護。本團隊針對疫苗接種及婦幼照護設計出「宜蘭婦幼」(Yilan for you) App。
 </description>
 
-<author href="https://github.com/LinZap" email="soldierzx0705@gmail.com">
-Zap Google Map test
+<author href="" email="">
+宜蘭婦幼
 </author>
 
 <preference name="orientation" value="portrait" />
