@@ -248,7 +248,7 @@ var vaccineData = [{"month":1, "name":["卡介苗第一劑", "B 型肝炎疫苗�
 				for(var i=0; i<vaccineData.length; i++){
 					if( vaccineData[i].month * 30 > dateDiff){
 						$('a[href="#vaccinepage"]').find(".brk_name2").html("接種疫苗</br>" + dateDiff + "天後");
-
+						$('a[href="#vaccinepage"] img').attr("src","images/vaccine.fw.png");
 						break;
 					} 
 				}
