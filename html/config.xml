@@ -17,7 +17,9 @@
 <preference name="orientation" value="portrait" />
 <preference name="android-minSdkVersion" value="7" />
 
-<gap:splash src="images/PuliFoodMap.png" gap:platform="android" />
+
+<icon src="images/logo.fw.png" gap:platform="android" />
+<gap:splash src="images/loading.fw.png" gap:platform="android" />
 
 <feature name="http://api.phonegap.com/1.0/geolocation"/>
 <feature name="http://api.phonegap.com/1.0/network"/>
