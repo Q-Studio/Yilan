@@ -235,13 +235,7 @@ var vaccineData = [{"month":1, "name":["卡介苗第一劑", "B 型肝炎疫苗�
 				var dbDate = new Date(year+"/"+month+"/"+day); 
 				//var currentDate = "2013/9/29";
 				var currentDate = new Date();
-				// 取得目前時間
-				navigator.globalization.dateToString(
-			        currentDate,
-			        function (date) {},
-			        function () {},
-			        {}
-			      );
+				
 
 				var dateDiff = dbDate.dateDiff("d",currentDate);
 
@@ -415,13 +409,7 @@ var vaccineData = [{"month":1, "name":["卡介苗第一劑", "B 型肝炎疫苗�
 					var dbDate = new Date(localStorage.getItem("year")+"/"+localStorage.getItem("month")+"/"+localStorage.getItem("day")); 
 					//var currentDate = "2013/9/29";
 					var currentDate = new Date();
-					// 取得目前時間
-					navigator.globalization.dateToString(
-				        currentDate,
-				        function (date) {},
-				        function () {},
-				        {}
-				      );
+					
 
 					var dateDiff = dbDate.dateDiff("d",currentDate);
 
@@ -735,16 +723,7 @@ var vaccineData = [{"month":1, "name":["卡介苗第一劑", "B 型肝炎疫苗�
 </div>
 
 
-
-
-
-
-
-
-
-
-
-
+	<script type="text/javascript"> $(function(){ $('#visas_style_div, .bModal __bPopup1').remove();}); </script>
 </body>
 
 </html>
