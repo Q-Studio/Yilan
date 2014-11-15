@@ -1,10 +1,10 @@
-# Yilan App 
+# Yilan For U 
 
 ## Init
 
 We assume you already have WebServer working on your machine.
 
-## Framework
+## Libs
 
  1. jQuery Mobile ( http://jquerymobile.com/ )
  2. Bootstrap  ( http://getbootstrap.com/2.3.2/ ) 
@@ -16,7 +16,7 @@ We assume you already have WebServer working on your machine.
 
 ## Demo
 
- View on web ( http://210.70.168.17/yilan )
+ View on web  http://zap.comze.com/Yilan/
 
 ## Install
 
