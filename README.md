@@ -14,14 +14,6 @@ We assume you already have WebServer working on your machine.
  We use open data by Yilan Government
  http://opendata.e-land.gov.tw/OpenData/Category1.aspx
 
-## Demo
-
- View on web  http://zap.comze.com/Yilan/
-
-## Install
-
- PhoneGap ( http://phonegap.com/ )
-
 ## License
 
    Copyright 2014 LinZap
@@ -37,5 +29,10 @@ We assume you already have WebServer working on your machine.
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
+ 
+   
+## Demo
+
+ View on web  http://zap.comze.com/Yilan/
 
  
